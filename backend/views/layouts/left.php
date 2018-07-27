@@ -31,6 +31,17 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label'=>'Promotion','icon'=>'share','url'=>'#','items'=>[
+                        ['label' => 'PromotionList', 'icon' => 'file-code-o', 'url' => ['/promotion'],],
+                        ['label' => 'PromotionCreate', 'icon' => 'file-code-o', 'url' => ['/promotion/create'],],
+                    ]],
+                    ['label'=>'Category','icon'=>'share','url'=>'#','items'=>[
+                        ['label' => 'CategoryList', 'icon' => 'file-code-o', 'url' => ['/category'],],
+                    ]],
+                    ['label'=>'Product','icon'=>'share','url'=>'#','items'=>[
+                        ['label' => 'ProductList', 'icon' => 'file-code-o', 'url' => ['/product'],],
+                        ['label' => 'ProductCreate', 'icon' => 'file-code-o', 'url' => ['/product/create'],],
+                    ]],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],

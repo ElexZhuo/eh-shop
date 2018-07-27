@@ -9,7 +9,7 @@ return [
     'Hello'=>'你好',
     'Gender'=>'性别',
     'Area Code'=>'区号',
-
+    'Pls Select' => '请选择',
     'Created At'=>'创建时间',
     'Updated At'=>'更新时间',
     'Created User'=>'创建人',
@@ -23,6 +23,8 @@ return [
     'Male'=>'男',
     'Female'=>'女',
     'Delete' => '删除',
+    'Batch Delete' => '批量删除',
+    'Batch AddTo' => '批量添加至',
     'Yes'=>'是',
     'No'=>'否',
     'Update'=>'编辑',
@@ -47,5 +49,6 @@ return [
     'Product Desc' => '商品描述',
     'Attr' => '属性',
     'Price' => '价格',
-    'Create Attr' => '新增属性'
+    'Create Attr' => '新增属性',
+    'Product Info' => '商品信息'
 ];

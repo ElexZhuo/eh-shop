@@ -40,7 +40,7 @@ class ProductAttr extends CommonModel
         return [
             [['product_id', 'count', 'created_at', 'updated_at', 'created_user_id', 'updated_user_id'], 'integer'],
             [['attr','price'], 'required'],
-            [['pictures'], 'string'],
+//            [['pictures'], 'string'],
             [['price'], 'number'],
             [['attr'], 'string', 'max' => 64],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],

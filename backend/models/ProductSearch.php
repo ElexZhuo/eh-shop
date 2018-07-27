@@ -12,13 +12,14 @@ use app\models\Product;
  */
 class ProductSearch extends Product
 {
+    public $promotion_id;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'category_id', 'status', 'created_at', 'updated_at', 'created_user_id', 'updated_user_id'], 'integer'],
+            [['id', 'category_id', 'status', 'created_at', 'updated_at', 'created_user_id', 'updated_user_id','promotion_id'], 'integer'],
             [['product_title', 'product_desc'], 'safe'],
         ];
     }
@@ -42,6 +43,7 @@ class ProductSearch extends Product
     public function search($params)
     {
         $query = Product::find();
+        $query->joinWith('refPromotionProducts');
 
         // add conditions that should always apply here
 
@@ -70,6 +72,8 @@ class ProductSearch extends Product
 
         $query->andFilterWhere(['like', 'product_title', $this->product_title])
             ->andFilterWhere(['like', 'product_desc', $this->product_desc]);
+
+        $query->andFilterWhere(['=', 'ref_promotion_product.promotion_id', $this->promotion_id]);
 
         return $dataProvider;
     }

@@ -21,7 +21,11 @@
         "dmstr/yii2-adminlte-asset": "2.*",
         "yii-dream-team/yii2-jstree": "*",
         "kartik-v/yii2-widgets": "*",
-        "yiidoc/yii2-redactor": "*"
+        "yiidoc/yii2-redactor": "*",
+        "kartik-v/yii2-detail-view": "*",
+        "kartik-v/yii2-editable": "*",
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-dialog": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -39,7 +43,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://packagist.phpcomposer.com"
         }
     ]
 }

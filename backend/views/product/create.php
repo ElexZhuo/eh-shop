@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,'catelist'=>$catelist,'product_attr_Mul'=>$product_attr_Mul
+        'model' => $model,'catelist'=>$catelist,'product_attr'=>$product_attr
     ]) ?>
 
 </div>
