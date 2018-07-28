@@ -42,6 +42,9 @@
                         ['label' => 'ProductList', 'icon' => 'file-code-o', 'url' => ['/product'],],
                         ['label' => 'ProductCreate', 'icon' => 'file-code-o', 'url' => ['/product/create'],],
                     ]],
+                    ['label'=>'User','icon'=>'share','url'=>'#','items'=>[
+                        ['label' => 'User Manager', 'icon' => 'file-code-o', 'url' => ['/user'],],
+                    ]],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],

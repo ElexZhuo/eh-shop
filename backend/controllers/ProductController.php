@@ -116,7 +116,7 @@ class ProductController extends CommonController
                 $model_attr->save();
                 $output = '';
                 $cout = count($image);
-                isset($posted['attr']) && $output = $model_attr->attr;
+//                isset($posted['attr']) && $output = $model_attr->attr;
             }
             $out = Json::encode(['output'=>$output,'message'=>'','count'=>$cout]);
             echo $out;
