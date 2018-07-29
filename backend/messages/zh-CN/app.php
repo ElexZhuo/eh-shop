@@ -54,5 +54,7 @@ return [
     'Attr' => '属性',
     'Price' => '价格',
     'Create Attr' => '新增属性',
-    'Product Info' => '商品信息'
+    'Product Info' => '商品信息',
+    'Name' => '名字',
+    'Expresses' => '快递',
 ];
