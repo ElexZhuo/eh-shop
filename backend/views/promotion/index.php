@@ -23,17 +23,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'title',
-            'status',
             [
                 'attribute' => 'pictures',
                 'format' => 'raw',
                 'value' => function($model){
                     return Html::img(IMG_PROMOTION_PATH.$model->pictures,['width'=>250]);
                 },
-
             ],
+            [
+                'attribute' => 'ad_loc_id',
+                'value' => function($model){
+                    return $model->adLoc == null ? '':$model->adLoc->tag;
+                }
+            ],
+            'status',
             'created_at:datetime',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

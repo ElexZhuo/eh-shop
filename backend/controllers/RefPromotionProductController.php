@@ -3,16 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\RefPromotionProduct;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * RefPromotionProductController implements the CRUD actions for RefPromotionProduct model.
  */
-class RefPromotionProductController extends Controller
+class RefPromotionProductController extends BaseController
 {
     /**
      * {@inheritdoc}

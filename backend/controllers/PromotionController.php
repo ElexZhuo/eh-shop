@@ -2,19 +2,20 @@
 
 namespace backend\controllers;
 
-use backend\controllers\CommonController;
 use Yii;
-use app\models\Promotion;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use common\models\Promotion;
+use common\models\AdLoc;
+use common\models\RefPromotionProduct;
 
 /**
  * PromotionController implements the CRUD actions for Promotion model.
  */
-class PromotionController extends CommonController
+class PromotionController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -54,8 +55,34 @@ class PromotionController extends CommonController
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $adList = ArrayHelper::map(AdLoc::find()->all(),'id','tag');
+
+        $ref_promotion_product = new ActiveDataProvider([
+            'query' => RefPromotionProduct::find()->where(['promotion_id'=>$id]),
+        ]);
+
+        $oldpic = $model->pictures;
+        if(Yii::$app->request->post('Promotion')){
+            $post = ['Promotion' => $_POST['Promotion']];
+            if($model -> load($post)){
+                $image = UploadedFile::getInstance($model,'pictures');
+                if(!is_null($image)){
+                    $ext = $image->getExtension();
+                    $imageName = time().rand(100,999).'.'.$ext;
+                    $image->saveAs(IMG_PROMOTION_SAVE_PATH.$imageName);
+                    $model->pictures = $imageName;
+                }else{
+                    $model->pictures = $oldpic;
+                }
+                $model->save();
+            }
+        }
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'adList' => $adList,
+            'ref_promotion_product' => $ref_promotion_product,
         ]);
     }
 
@@ -67,6 +94,8 @@ class PromotionController extends CommonController
     public function actionCreate()
     {
         $model = new Promotion();
+
+        $adList = ArrayHelper::map(AdLoc::find()->all(),'id','tag');
 
         if ($model->load(Yii::$app->request->post())) {
 
@@ -89,6 +118,7 @@ class PromotionController extends CommonController
 
         return $this->render('create', [
             'model' => $model,
+            'adList' => $adList,
         ]);
     }
 
@@ -102,13 +132,25 @@ class PromotionController extends CommonController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $adList = ArrayHelper::map(AdLoc::find()->all(),'id','tag');
+        $oldpic = $model->pictures;
+        if ($model->load(Yii::$app->request->post()) ) {
+            $image = UploadedFile::getInstance($model,'pictures');
+            if(!is_null($image)){
+                $ext = $image->getExtension();
+                $imageName = time().rand(100,999).'.'.$ext;
+                $image->saveAs(IMG_PROMOTION_SAVE_PATH.$imageName);
+                $model->pictures = $imageName;
+            }else{
+                $model->pictures = $oldpic;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'adList' => $adList,
         ]);
     }
 
@@ -140,5 +182,14 @@ class PromotionController extends CommonController
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function actionDelRefProduct($id)
+    {
+        $model = RefPromotionProduct::findOne($id);
+        $promotion_id = $model->promotion_id;
+        $model->delete();
+
+        return $this->redirect(['view','id'=>$promotion_id]);
     }
 }

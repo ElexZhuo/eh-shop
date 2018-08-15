@@ -31,19 +31,22 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label'=>'Promotion','icon'=>'share','url'=>'#','items'=>[
-                        ['label' => 'PromotionList', 'icon' => 'file-code-o', 'url' => ['/promotion'],],
-                        ['label' => 'PromotionCreate', 'icon' => 'file-code-o', 'url' => ['/promotion/create'],],
+                    ['label'=>Yii::t('app','Promotions'),'icon'=>'flag','url'=>'#','items'=>[
+                        ['label' => Yii::t('app','Promotion List'), 'icon' => 'align-left', 'url' => ['/promotion'],],
+                        ['label' => Yii::t('app','Create Promotion'), 'icon' => 'wrench', 'url' => ['/promotion/create'],],
                     ]],
-                    ['label'=>'Category','icon'=>'share','url'=>'#','items'=>[
-                        ['label' => 'CategoryList', 'icon' => 'file-code-o', 'url' => ['/category'],],
+                    ['label'=> Yii::t('app','Categories'),'icon'=>'list','url'=>'#','items'=>[
+                        ['label' => Yii::t('app','Category List'), 'icon' => 'align-left', 'url' => ['/category'],],
                     ]],
-                    ['label'=>'Product','icon'=>'share','url'=>'#','items'=>[
-                        ['label' => 'ProductList', 'icon' => 'file-code-o', 'url' => ['/product'],],
-                        ['label' => 'ProductCreate', 'icon' => 'file-code-o', 'url' => ['/product/create'],],
+                    ['label'=> Yii::t('app','Product Manager'),'icon'=>'tags','url'=>'#','items'=>[
+                        ['label' =>  Yii::t('app','Products'), 'icon' => 'align-left', 'url' => ['/product'],],
+                        ['label' =>  Yii::t('app','Create Product'), 'icon' => 'wrench', 'url' => ['/product/create'],],
                     ]],
-                    ['label'=>'User','icon'=>'share','url'=>'#','items'=>[
-                        ['label' => 'User Manager', 'icon' => 'file-code-o', 'url' => ['/user'],],
+                    ['label'=> Yii::t('app','User Manager'),'icon'=>'user','url'=>'#','items'=>[
+                        ['label' =>  Yii::t('app','Create User'), 'icon' => 'equalizer', 'url' => ['/user'],],
+                    ]],
+                    ['label'=> Yii::t('app','Ad Loc'),'icon'=>'map-marker','url'=>'#','items'=>[
+                        ['label' => Yii::t('app','Ad Loc'), 'icon' => 'align-left', 'url' => ['/ad-loc'],],
                     ]],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],

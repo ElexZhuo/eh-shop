@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use common\models\User;
+use common\models\CommonModel;
 
 /**
  * This is the model class for table "express".

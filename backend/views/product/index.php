@@ -50,11 +50,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     $promotions = $model->getRefPromotionProducts()->all();
                     $promotion = "";
                     foreach ($promotions as $item){
-                        $promotion .= \app\models\Promotion::findOne($item->promotion_id)->title.'<br>';
+                        $promotion .= \common\models\Promotion::findOne($item->promotion_id)->title.'<br>';
                     }
                     return $promotion;
                 },
-                 'filter' => Html::activeDropDownList($searchModel, 'promotion_id', \yii\helpers\ArrayHelper::map(\app\models\Promotion::find()->all(),'id','title'),
+                 'filter' => Html::activeDropDownList($searchModel, 'promotion_id', \yii\helpers\ArrayHelper::map(\common\models\Promotion::find()->all(),'id','title'),
                     ['prompt' => Yii::t('app','All'), 'class' => 'form-control']
                 ),
                 'headerOptions' => ['width' => '140']
@@ -120,6 +120,7 @@ $script = <<< js
                         data:{id:ids,pid:pid},
                         success:function(re) {
                           alert(re.tip);
+                          location.reload();
                         },
                         fail:function() {
                           alert("add ref promotion fail");

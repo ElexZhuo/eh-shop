@@ -2,12 +2,7 @@
 
 namespace backend\controllers;
 
-use app\models\Category;
-use app\models\Product;
-use app\models\ProductAttr;
-use app\models\ProductSearch;
-use app\models\Promotion;
-use app\models\RefPromotionProduct;
+use common\models\Category;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
@@ -17,11 +12,16 @@ use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\web\UploadedFile;
 use yii\widgets\ActiveForm;
+use common\models\ProductSearch;
+use common\models\Promotion;
+use common\models\Product;
+use common\models\ProductAttr;
+use common\models\RefPromotionProduct;
 
 /**
  * ProductController implements the CRUD actions for Product model.
  */
-class ProductController extends CommonController
+class ProductController extends BaseController
 {
     /**
      * {@inheritdoc}

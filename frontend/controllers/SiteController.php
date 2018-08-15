@@ -1,12 +1,13 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Product;
+use common\models\ProductAttr;
+use common\models\Promotion;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -16,38 +17,9 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends CommonController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
+
 
     /**
      * {@inheritdoc}
@@ -72,7 +44,44 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $data['bn_main'] = Promotion::find()->joinWith('adLoc')->where('ad_loc.code=1')->orderBy('created_at desc')->limit(2)->all();
+        $data['bn_bottom'] = Promotion::find()->joinWith('adLoc')->where('ad_loc.code=11')->orderBy('created_at desc')->limit(2)->all();
+        $data['bn_right'] = Promotion::find()->joinWith('adLoc')->where('ad_loc.code=12')->orderBy('created_at desc')->limit(2)->all();
+
+        $data['hot_sale'] = Product::find()->joinWith('refPromotionProducts')->where('ref_promotion_product.promotion_id=7')->orderBy('created_at desc')->limit(8)->all();
+        foreach ($data['hot_sale'] as $index => $hot_sale){
+            $min_price = ProductAttr::find()->where(['product_id'=>$hot_sale['id']])->min('price');
+            $max_price = ProductAttr::find()->where(['product_id'=>$hot_sale['id']])->max('price');
+            $attr = [];
+            if($min_price != $max_price){
+                $attr['price'] = $min_price.'~'.$max_price;
+            }else{
+                $attr['price'] = $min_price;
+            }
+            $array = json_decode(ProductAttr::findOne(['product_id'=>$hot_sale['id']])->pictures);
+            $attr['image'] = IMG_PRODUCT_SAVE_PATH.$array[0];
+            $data['hot_sale_attr'][$index] = $attr;
+        }
+
+        $data['recommend'] = Product::find()->joinWith('refPromotionProducts')->where('ref_promotion_product.promotion_id=8')->orderBy('created_at desc')->limit(6)->all();
+        foreach ($data['recommend'] as $index => $hot_sale){
+            $min_price = ProductAttr::find()->where(['product_id'=>$hot_sale['id']])->min('price');
+            $max_price = ProductAttr::find()->where(['product_id'=>$hot_sale['id']])->max('price');
+            $attr = [];
+            if($min_price != $max_price){
+                $attr['price'] = $min_price.'~'.$max_price;
+            }else{
+                $attr['price'] = $min_price;
+            }
+            $array = json_decode(ProductAttr::findOne(['product_id'=>$hot_sale['id']])->pictures);
+            $attr['image'] = IMG_PRODUCT_SAVE_PATH.$array[0];
+            $data['recommend_attr'][$index] = $attr;
+        }
+
+//        Recommend
+        return $this->render('index',[
+            'data'=>$data,
+        ]);
     }
 
     /**

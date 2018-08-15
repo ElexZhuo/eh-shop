@@ -3,16 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Express;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
 /**
  * ExpressController implements the CRUD actions for Express model.
  */
-class ExpressController extends Controller
+class ExpressController extends BaseController
 {
     /**
      * {@inheritdoc}

@@ -263,7 +263,7 @@ JS;
 //                'value'=>'<span class="text-justify"><em>' . $model->product_desc . '</em></span>',
 //                'options'=>['rows'=>6],
 //                'type'=>DetailView::INPUT_TEXTAREA,
-                'labelColOptions' => ['style' => 'width:10%'],
+                'labelColOptions' => ['style' => 'width:20%'],
             ],
         ],
     ]); ?>

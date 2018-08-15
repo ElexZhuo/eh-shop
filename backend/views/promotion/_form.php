@@ -15,6 +15,8 @@ use kartik\file\FileInput;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'ad_loc_id')->dropDownList($adList, ['prompt'=>Yii::t('app', 'Pls Select')]) ?>
+
     <?= $form->field($model, 'pictures')->widget(FileInput::className(),[
         'options' => ['accept' => 'image/*'],
         'pluginOptions' => [

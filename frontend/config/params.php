@@ -1,4 +1,30 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
+    'color'=>[
+        '1'=>'#3f5eca',
+        '2'=>'#13528c',
+        '3'=>'#2f2e2e',
+        '4'=>'#fe9901',
+        '5'=>'#7ac143',
+        '6'=>'#efc73a',
+        '7'=>'#f034ca',
+        '8'=>'#efc73a',
+        '9'=>'#e93434',
+        '0'=>'#f03442',
+    ],
+    'location_ad'=>[
+        'index_main'=>[
+            'title'=>'首页Banner主位',
+            'value'=>1,
+        ],
+        'index_main_bottom'=>[
+            'title'=>'首页Banner底部',
+            'value'=>11,
+        ],
+        'index_main_right'=>[
+            'title'=>'首页Banner右边',
+            'value'=>12,
+        ],
+    ],
 ];

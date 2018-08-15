@@ -10,12 +10,12 @@ namespace backend\controllers;
 
 use kartik\form\ActiveForm;
 use yii\web\Response;
-use app\models\UserSearch;
 use common\models\User;
 use Yii;
 use yii\helpers\Json;
+use common\models\UserSearch;
 
-class UserController extends CommonController
+class UserController extends BaseController
 {
 
     public function actionIndex(){
