@@ -18,7 +18,10 @@ use yii\helpers\Html;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
-
+                <li class="dropdown tasks-menu">
+                    <span class="label label-danger"></span>
+                    <a href="<?php echo str_replace('backend','frontend',Yii::$app->homeUrl) ?>"><i class="glyphicon glyphicon-globe">Frontend</i></a>
+                </li>
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
