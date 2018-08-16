@@ -12,7 +12,6 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use common\models\User;
 
 class CommonModel extends ActiveRecord
