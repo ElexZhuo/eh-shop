@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'pictures',
                 'format' => 'raw',
                 'value' => function($model){
-                    return Html::img(IMG_PROMOTION_PATH.$model->pictures,['width'=>250]);
+                    return Html::img(IMG_PROMOTION_SAVE_PATH.$model->pictures,['width'=>250]);
                 },
             ],
             [

@@ -103,7 +103,7 @@ class ProductController extends BaseController
                         if(!is_null($img)){
                             $ext = $img->getExtension();
                             $imageName = time().rand(100,999).'.'.$ext;
-                            $img->saveAs(IMG_PRODUCT_SAVE_PATH.$imageName);
+                            $img->saveAs(IMG_PRODUCT_PATH.$imageName);
                             $pics[]=$imageName;
                         }else{
                             var_dump('$img is null');
@@ -158,7 +158,7 @@ class ProductController extends BaseController
                         if(!is_null($img)){
                             $ext = $img->getExtension();
                             $imageName = time().rand(100,999).'.'.$ext;
-                            $img->saveAs(IMG_PRODUCT_SAVE_PATH.$imageName);
+                            $img->saveAs(IMG_PRODUCT_PATH.$imageName);
                             $pics[]=$imageName;
                         }else{
                             var_dump('$img is null');
@@ -264,7 +264,7 @@ class ProductController extends BaseController
                 if(!is_null($img)){
                     $ext = $img->getExtension();
                     $imageName = time().rand(100,999).'.'.$ext;
-                    $img->saveAs(IMG_PRODUCT_SAVE_PATH.$imageName);
+                    $img->saveAs(IMG_PRODUCT_PATH.$imageName);
                     $pics[]=$imageName;
                 }else{
                     var_dump('$img is null');

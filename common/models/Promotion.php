@@ -3,7 +3,6 @@
 namespace common\models;
 
 use Yii;
-use app\models\RefPromotionProduct;
 /**
  * This is the model class for table "promotion".
  *

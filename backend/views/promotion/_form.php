@@ -21,7 +21,7 @@ use kartik\file\FileInput;
         'options' => ['accept' => 'image/*'],
         'pluginOptions' => [
             'previewFileType' => 'image',
-            'initialPreview' =>null==$model->pictures?  "":IMG_PROMOTION_PATH.$model->pictures,
+            'initialPreview' =>null==$model->pictures?  "":IMG_PROMOTION_SAVE_PATH.$model->pictures,
             'initialPreviewConfig' => ['width' => '180px'],
             'initialPreviewAsData' => true,
             'showCaption'=>false,

@@ -36,14 +36,17 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'enableStrictParsing' => false,  //不启用严格解析
+//            'showScriptName' => false,
+//            'rules' => [
+//                '<module:\w+>/<controller:\w+>/<id:\d+>' => '<module>/<controller>/view',
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+//            ],
+//        ],
+
     ],
     'params' => $params,
 ];

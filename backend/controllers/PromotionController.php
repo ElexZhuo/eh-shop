@@ -70,7 +70,7 @@ class PromotionController extends BaseController
                 if(!is_null($image)){
                     $ext = $image->getExtension();
                     $imageName = time().rand(100,999).'.'.$ext;
-                    $image->saveAs(IMG_PROMOTION_SAVE_PATH.$imageName);
+                    $image->saveAs(IMG_PROMOTION_PATH.$imageName);
                     $model->pictures = $imageName;
                 }else{
                     $model->pictures = $oldpic;
@@ -103,7 +103,7 @@ class PromotionController extends BaseController
             if(!is_null($image)){
                 $ext = $image->getExtension();
                 $imageName = time().rand(100,999).'.'.$ext;
-                $image->saveAs(IMG_PROMOTION_SAVE_PATH.$imageName);
+                $image->saveAs(IMG_PROMOTION_PATH.$imageName);
                 $model->pictures = $imageName;
             }
 
@@ -139,7 +139,7 @@ class PromotionController extends BaseController
             if(!is_null($image)){
                 $ext = $image->getExtension();
                 $imageName = time().rand(100,999).'.'.$ext;
-                $image->saveAs(IMG_PROMOTION_SAVE_PATH.$imageName);
+                $image->saveAs(IMG_PROMOTION_PATH.$imageName);
                 $model->pictures = $imageName;
             }else{
                 $model->pictures = $oldpic;

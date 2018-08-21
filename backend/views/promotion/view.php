@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format'=>['image',['width'=>'250']],
                 'labelColOptions' => ['style' => 'width:10%'],
 //                'valueColOptions' => ['style' => 'width:20%'],
-                'value'=>IMG_PROMOTION_PATH.$model->pictures,
+                'value'=>IMG_PROMOTION_SAVE_PATH.$model->pictures,
                 'type'=>DetailView::INPUT_FILEINPUT,
                 'widgetOptions'=>[
 

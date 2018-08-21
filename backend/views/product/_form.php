@@ -42,7 +42,7 @@ use yii\redactor\widgets\Redactor;
             ],
             'pluginOptions' => [
                 'previewFileType' => 'image',
-                'initialPreview' =>null==$product_attr->pictures?  "":IMG_PRODUCT_PATH.$product_attr->pictures,
+                'initialPreview' =>null==$product_attr->pictures?  "":IMG_PRODUCT_SAVE_PATH.$product_attr->pictures,
                 'initialPreviewConfig' => ['width' => '180px'],
                 'initialPreviewAsData' => true,
                 'showCaption'=>false,

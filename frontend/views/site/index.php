@@ -421,7 +421,7 @@ use yii\helpers\Url;
                                                                                 <?php foreach ($data['bn_main'] as $bn_main): ?>
                                                                                 <div class="item">
                                                                                     <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$bn_main['id']]) ?>"><img
-                                                                                            src=<?php echo IMG_PROMOTION_PATH.$bn_main->pictures ?>
+                                                                                            src=<?php echo IMG_PROMOTION_SAVE_PATH.$bn_main->pictures ?>
                                                                                             alt=<?php echo $bn_main->title ?>
                                                                                             class="img-responsive"
                                                                                             height="559"></a>
@@ -441,7 +441,7 @@ use yii\helpers\Url;
                                                                 <div class="banner">
                                                                     <?php foreach ($data['bn_bottom'] as $bn_bottom): ?>
                                                                     <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$bn_bottom['id']]) ?>" class="banner1">
-                                                                        <img src=<?php echo IMG_PROMOTION_PATH.$bn_bottom->pictures ?> alt=<?php echo $bn_bottom->title ?>
+                                                                        <img src=<?php echo IMG_PROMOTION_SAVE_PATH.$bn_bottom->pictures ?> alt=<?php echo $bn_bottom->title ?>
                                                                              title=<?php echo $bn_bottom->title ?>/>
                                                                     </a>
                                                                     <?php endforeach; ?>
@@ -461,7 +461,7 @@ use yii\helpers\Url;
                                                                    class="vc_single_image-wrapper vc_box_border_grey">
                                                                     <img class="vc_single_image-img"
 
-                                                                         src=<?php echo IMG_PROMOTION_PATH.$data['bn_right'][0]->pictures ?> width="193"
+                                                                         src=<?php echo IMG_PROMOTION_SAVE_PATH.$data['bn_right'][0]->pictures ?> width="193"
                                                                          height="352" alt=<?php echo $data['bn_right'][0]->title ?> title=<?php echo $data['bn_right'][0]->title ?> />
                                                                 </a>
                                                             </figure>
@@ -472,7 +472,7 @@ use yii\helpers\Url;
                                                                 <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$data['bn_right'][1]->id]) ?>" target="_self"
                                                                    class="vc_single_image-wrapper vc_box_border_grey">
                                                                     <img class="vc_single_image-img"
-                                                                         src=<?php echo IMG_PROMOTION_PATH.$data['bn_right'][1]->pictures ?> width="193"
+                                                                         src=<?php echo IMG_PROMOTION_SAVE_PATH.$data['bn_right'][1]->pictures ?> width="193"
                                                                          height="175" alt=<?php echo $data['bn_right'][1]->title ?> title=<?php echo $data['bn_right'][1]->title ?> />
                                                                 </a>
                                                             </figure>
