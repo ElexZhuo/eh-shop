@@ -22,7 +22,7 @@ $fieldOptions2 = [
 <div class="login-box">
     <div class="login-logo">
         <a href="#"><b>E-H</b> Shop Demo</a><br>
-        <small>Base Yii2 , AdminLTE</small>
+        <h6>Base Yii2 , AdminLTE</h6>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -63,9 +63,18 @@ $fieldOptions2 = [
         </div>
         <!-- /.social-auth-links -->
 
-        <a href="#">忘记密码</a><br>
+        <a href="#">忘记密码</a> |
         <a href="#" class="text-center">注册？</a>
 
     </div>
     <!-- /.login-box-body -->
+    <!--QR Code -->
+    <div class="login-box-body" style="margin-top: 5px;">
+        <div class="text-center">
+            扫描二维码，关注公众号，回复“EHShop”获取后台登陆账号密码
+        </div>
+        <div class="card-body text-center">
+            <img src="../web/images/itl-qr.jpg">
+        </div>
+    </div>
 </div><!-- /.login-box -->

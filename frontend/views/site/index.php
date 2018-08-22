@@ -40,302 +40,42 @@ use yii\helpers\Url;
                                                                          class="collapse menu-responsive-wrapper">
                                                                         <ul id="menu-vertical-menu"
                                                                             class="etrostore_resmenu">
-
-                                                                            <li class="menu-computers-laptops">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">EEEEECCCCC</a>
-                                                                            </li>
-
-                                                                            <li class="menu-computers-laptops">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Computers
-                                                                                    & Laptops</a>
-                                                                            </li>
-
-                                                                            <li class="fix-menu res-dropdown menu-smartphones-tablet">
-                                                                                <a class="item-link dropdown-toggle"
-                                                                                   href="simple_product.html">Smartphones
-                                                                                    & Tablet</a>
-                                                                                <span class="show-dropdown"></span>
-
-                                                                                <ul class="dropdown-resmenu">
-                                                                                    <li class="res-dropdown menu-electronics">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Electronics</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-laptop-desktop-accessories">
-                                                                                                <a href="#">Laptop &
-                                                                                                    Desktop
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-storage-external-drives">
-                                                                                                <a href="#">Storage &
-                                                                                                    External Drives</a>
+                                                                            <?php
+                                                                            foreach ($this->params['menu'] as $index => $top):
+                                                                                ?>
+                                                                                <li class="fix-menu res-dropdown menu-smartphones-tablet">
+                                                                                    <a class="item-link dropdown-toggle"
+                                                                                       href="<?php echo Url::to(['product/category', 'category_id' => $top['id']]) ?>"><?php echo $top['title'] ?></a>
+                                                                                    <?php if (count($top['children']) != 0) {
+                                                                                        echo '<span class="show-dropdown"></span>';
+                                                                                    } ?>
+                                                                                    <ul class="dropdown-resmenu">
+                                                                                        <?php
+                                                                                        foreach ($top['children'] as $child):
+                                                                                            ?>
+                                                                                            <li class="res-dropdown menu-electronics">
+                                                                                                <a class="item-link dropdown-toggle"
+                                                                                                   href="<?php echo Url::to(['product/category', 'category_id' => $child['id']]) ?>"><?php echo $child['title'] ?></a>
+                                                                                                <?php if (count($child['grandson']) != 0) {
+                                                                                                    echo '<span class="show-dropdown"></span>';
+                                                                                                } ?>
+                                                                                                <ul class="dropdown-resmenu">
+                                                                                                    <?php
+                                                                                                    foreach ($child['grandson'] as $grandson):
+                                                                                                        ?>
+                                                                                                        <li class="menu-laptop-desktop-accessories">
+                                                                                                            <a href="<?php echo Url::to(['product/category', 'category_id' => $grandson['id']]) ?>"><?php echo $grandson['title'] ?></a>
+                                                                                                        </li>
+                                                                                                    <?php endforeach; ?>
+                                                                                                </ul>
                                                                                             </li>
-                                                                                            <li class="menu-networking-wireless">
-                                                                                                <a href="#">Networking &
-                                                                                                    Wireless</a></li>
-                                                                                            <li class="menu-motherboards-cpus-psus">
-                                                                                                <a href="#">Motherboards,
-                                                                                                    CPUs & PSUs</a></li>
-                                                                                            <li class="menu-webcams"><a
-                                                                                                    href="#">Webcams</a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </li>
+                                                                                            <?php
+                                                                                        endforeach;
+                                                                                        ?>
 
-                                                                                    <li class="res-dropdown menu-smartphone">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Smartphone</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-mobile-phones">
-                                                                                                <a href="#">Mobile
-                                                                                                    Phones</a></li>
-                                                                                            <li class="menu-smart-watches-accessories">
-                                                                                                <a href="#">Smart
-                                                                                                    Watches &
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-mobile-accessories">
-                                                                                                <a href="#">Mobile
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-cases-covers">
-                                                                                                <a href="#">Cases &
-                                                                                                    Covers</a></li>
-                                                                                            <li class="menu-power-banks">
-                                                                                                <a href="#">Power
-                                                                                                    Banks</a></li>
-                                                                                        </ul>
-                                                                                    </li>
-
-                                                                                    <li class="res-dropdown menu-tablets">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Tablets</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-tablet-accessories">
-                                                                                                <a href="#">Tablet
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-cases-covers">
-                                                                                                <a href="#">Cases &
-                                                                                                    Covers</a></li>
-                                                                                            <li class="menu-power-banks">
-                                                                                                <a href="#">Power
-                                                                                                    Banks</a></li>
-                                                                                            <li class="menu-memory-cards">
-                                                                                                <a href="#">Memory
-                                                                                                    Cards</a></li>
-                                                                                        </ul>
-                                                                                    </li>
-
-                                                                                    <li class="res-dropdown menu-computer">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Computer</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-macbooks-imacs">
-                                                                                                <a href="#">Macbooks &
-                                                                                                    iMacs</a></li>
-                                                                                            <li class="menu-computers-desktops">
-                                                                                                <a href="#">Computers &
-                                                                                                    Desktops</a></li>
-                                                                                            <li class="menu-printers-scanners-faxs">
-                                                                                                <a href="#">Printers,
-                                                                                                    Scanners, & Faxs</a>
-                                                                                            </li>
-                                                                                            <li class="menu-laptop-desktop-accessories">
-                                                                                                <a href="#">Laptop &
-                                                                                                    Desktop
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-storage-external-drives">
-                                                                                                <a href="#">Storage &
-                                                                                                    External Drives</a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </li>
-
-                                                                                    <li class="fix-position res-dropdown menu-image">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Image</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-image-1"><a
-                                                                                                    href="#">Image 1</a>
-                                                                                            </li>
-                                                                                            <li class="menu-image-2"><a
-                                                                                                    href="#">Image 2</a>
-                                                                                            </li>
-                                                                                            <li class="menu-image-3"><a
-                                                                                                    href="#">Image 3</a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </li>
-
-                                                                            <li class="menu-cameras-camcorders">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Cameras &
-                                                                                    Camcorders</a>
-                                                                            </li>
-
-                                                                            <li class="res-dropdown menu-electronic-component">
-                                                                                <a class="item-link dropdown-toggle"
-                                                                                   href="simple_product.html">Electronic
-                                                                                    Component</a>
-                                                                                <span class="show-dropdown"></span>
-
-                                                                                <ul class="dropdown-resmenu">
-                                                                                    <li class="res-dropdown menu-electronics">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Electronics</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-leds"><a
-                                                                                                    href="#">Leds</a>
-                                                                                            </li>
-                                                                                            <li class="menu-laptop-desktop-accessories">
-                                                                                                <a href="#">Laptop &
-                                                                                                    Desktop
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-storage-external-drives">
-                                                                                                <a href="#">Storage &
-                                                                                                    External Drives</a>
-                                                                                            </li>
-                                                                                            <li class="menu-networking-wireless">
-                                                                                                <a href="#">Networking &
-                                                                                                    Wireless</a></li>
-                                                                                            <li class="menu-motherboards-cpus-psus">
-                                                                                                <a href="#">Motherboards,
-                                                                                                    CPUs & PSUs</a></li>
-                                                                                            <li class="menu-webcams"><a
-                                                                                                    href="#">Webcams</a>
-                                                                                            </li>
-                                                                                            <li class="menu-gaming-mice">
-                                                                                                <a href="#">Gaming
-                                                                                                    Mice</a></li>
-                                                                                        </ul>
-                                                                                    </li>
-
-                                                                                    <li class="res-dropdown menu-smartphone">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Smartphone</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-smartphones">
-                                                                                                <a href="#">Smartphones</a>
-                                                                                            </li>
-                                                                                            <li class="menu-mobile-phones">
-                                                                                                <a href="#">Mobile
-                                                                                                    Phones</a></li>
-                                                                                            <li class="menu-smart-watches-accessories">
-                                                                                                <a href="#">Smart
-                                                                                                    Watches &
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-mobile-accessories">
-                                                                                                <a href="#">Mobile
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-cases-covers">
-                                                                                                <a href="#">Cases &
-                                                                                                    Covers</a></li>
-                                                                                            <li class="menu-power-banks">
-                                                                                                <a href="#">Power
-                                                                                                    Banks</a></li>
-                                                                                            <li class="menu-memory-cards">
-                                                                                                <a href="#">Memory
-                                                                                                    Cards</a></li>
-                                                                                        </ul>
-                                                                                    </li>
-
-                                                                                    <li class="res-dropdown menu-tablet">
-                                                                                        <a class="item-link dropdown-toggle"
-                                                                                           href="#">Tablet</a>
-                                                                                        <span
-                                                                                            class="show-dropdown"></span>
-
-                                                                                        <ul class="dropdown-resmenu">
-                                                                                            <li class="menu-tablets"><a
-                                                                                                    href="#">Tablets</a>
-                                                                                            </li>
-                                                                                            <li class="menu-tablet-accessories">
-                                                                                                <a href="#">Tablet
-                                                                                                    Accessories</a></li>
-                                                                                            <li class="menu-cases-covers">
-                                                                                                <a href="#">Cases &
-                                                                                                    Covers</a></li>
-                                                                                            <li class="menu-power-banks">
-                                                                                                <a href="#">Power
-                                                                                                    Banks</a></li>
-                                                                                            <li class="menu-memory-cards">
-                                                                                                <a href="#">Memory
-                                                                                                    Cards</a></li>
-                                                                                            <li class="menu-headphonesheadsets">
-                                                                                                <a href="#">Headphones/Headsets</a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </li>
-
-                                                                            <li class="menu-home-appliances">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Home
-                                                                                    Appliances</a>
-                                                                            </li>
-
-                                                                            <li class="menu-home-furniture">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Home
-                                                                                    Furniture</a>
-                                                                            </li>
-
-                                                                            <li class="menu-household-goods">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Household
-                                                                                    Goods</a>
-                                                                            </li>
-
-                                                                            <li class="menu-television">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Television</a>
-                                                                            </li>
-
-                                                                            <li class="menu-accessories-for-tablet">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Accessories
-                                                                                    for Tablet</a>
-                                                                            </li>
-
-                                                                            <li class="menu-laptops-accessories">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Laptops &
-                                                                                    Accessories</a>
-                                                                            </li>
-
-                                                                            <li class="menu-blender">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Blender</a>
-                                                                            </li>
-
-                                                                            <li class="menu-vacuum-cleaner">
-                                                                                <a class="item-link"
-                                                                                   href="simple_product.html">Vacuum
-                                                                                    Cleaner</a>
-                                                                            </li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            <?php endforeach; ?>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -347,7 +87,7 @@ use yii\helpers\Url;
                                                                     foreach ($this->params['menu'] as $index => $top):
                                                                         ?>
                                                                         <li class="fix-menu <?php echo $top['children'] == null ? 'dropdown' : '' ?>dropdown etrostore-mega-menu level1">
-                                                                            <a href="<?php echo Url::to(['product/category','category_id'=>$top['id']]) ?>"
+                                                                            <a href="<?php echo Url::to(['product/category', 'category_id' => $top['id']]) ?>"
                                                                                class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color"
@@ -361,7 +101,7 @@ use yii\helpers\Url;
                                                                                 foreach ($top['children'] as $child):
                                                                                     ?>
                                                                                     <li class="dropdown-submenu column-3 menu-electronics">
-                                                                                        <a href="<?php echo Url::to(['product/category','category_id'=>$child['id']]) ?>">
+                                                                                        <a href="<?php echo Url::to(['product/category', 'category_id' => $child['id']]) ?>">
 																							<span class="have-title">
 																								<span
                                                                                                     class="menu-title"><?php echo $child['title'] ?></span>
@@ -373,7 +113,7 @@ use yii\helpers\Url;
                                                                                             foreach ($child['grandson'] as $grandson):
                                                                                                 ?>
                                                                                                 <li class="menu-laptop-desktop-accessories">
-                                                                                                    <a href="<?php echo Url::to(['product/category','category_id'=>$grandson['id']]) ?>">
+                                                                                                    <a href="<?php echo Url::to(['product/category', 'category_id' => $grandson['id']]) ?>">
 																									<span
                                                                                                         class="have-title">
 																										<span
@@ -419,14 +159,14 @@ use yii\helpers\Url;
                                                                              style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
                                                                             <div class="module slideshow no-margin">
                                                                                 <?php foreach ($data['bn_main'] as $bn_main): ?>
-                                                                                <div class="item">
-                                                                                    <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$bn_main['id']]) ?>"><img
-                                                                                            src=<?php echo IMG_PROMOTION_SAVE_PATH.$bn_main->pictures ?>
-                                                                                            alt=<?php echo $bn_main->title ?>
-                                                                                            class="img-responsive"
-                                                                                            height="559"></a>
-                                                                                </div>
-                                                                                <?php endforeach;?>
+                                                                                    <div class="item">
+                                                                                        <a href="<?php echo Url::to(['product/promotion', 'promotion_id' => $bn_main['id']]) ?>"><img
+                                                                                                src=<?php echo IMG_PROMOTION_SAVE_PATH . $bn_main->pictures ?>
+                                                                                                alt=<?php echo $bn_main->title ?>
+                                                                                                class="img-responsive"
+                                                                                                height="559"></a>
+                                                                                    </div>
+                                                                                <?php endforeach; ?>
                                                                             </div>
                                                                             <div class="loadeding"></div>
                                                                         </div>
@@ -440,10 +180,12 @@ use yii\helpers\Url;
                                                             <div class="wpb_wrapper">
                                                                 <div class="banner">
                                                                     <?php foreach ($data['bn_bottom'] as $bn_bottom): ?>
-                                                                    <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$bn_bottom['id']]) ?>" class="banner1">
-                                                                        <img src=<?php echo IMG_PROMOTION_SAVE_PATH.$bn_bottom->pictures ?> alt=<?php echo $bn_bottom->title ?>
-                                                                             title=<?php echo $bn_bottom->title ?>/>
-                                                                    </a>
+                                                                        <a href="<?php echo Url::to(['product/promotion', 'promotion_id' => $bn_bottom['id']]) ?>"
+                                                                           class="banner1">
+                                                                            <img
+                                                                                src=<?php echo IMG_PROMOTION_SAVE_PATH . $bn_bottom->pictures ?> alt=<?php echo $bn_bottom->title ?>
+                                                                                title=<?php echo $bn_bottom->title ?>/>
+                                                                        </a>
                                                                     <?php endforeach; ?>
                                                                 </div>
                                                             </div>
@@ -455,25 +197,31 @@ use yii\helpers\Url;
                                             <div class="wrap-banner wpb_column vc_column_container vc_col-sm-2">
                                                 <div class="vc_column-inner vc_custom_1483000922579">
                                                     <div class="wpb_wrapper">
-                                                        <div class="wpb_single_image wpb_content_element vc_align_center vc_custom_1481518385054">
+                                                        <div
+                                                            class="wpb_single_image wpb_content_element vc_align_center vc_custom_1481518385054">
                                                             <figure class="wpb_wrapper vc_figure">
-                                                                <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$data['bn_right'][0]->id]) ?>" target="_self"
+                                                                <a href="<?php echo Url::to(['product/promotion', 'promotion_id' => $data['bn_right'][0]->id]) ?>"
+                                                                   target="_self"
                                                                    class="vc_single_image-wrapper vc_box_border_grey">
                                                                     <img class="vc_single_image-img"
 
-                                                                         src=<?php echo IMG_PROMOTION_SAVE_PATH.$data['bn_right'][0]->pictures ?> width="193"
-                                                                         height="352" alt=<?php echo $data['bn_right'][0]->title ?> title=<?php echo $data['bn_right'][0]->title ?> />
+                                                                         src=<?php echo IMG_PROMOTION_SAVE_PATH . $data['bn_right'][0]->pictures ?> width="193"
+                                                                         height="352"
+                                                                         alt=<?php echo $data['bn_right'][0]->title ?> title=<?php echo $data['bn_right'][0]->title ?> />
                                                                 </a>
                                                             </figure>
                                                         </div>
 
-                                                        <div class="wpb_single_image wpb_content_element vc_align_center">
+                                                        <div
+                                                            class="wpb_single_image wpb_content_element vc_align_center">
                                                             <figure class="wpb_wrapper vc_figure">
-                                                                <a href="<?php echo Url::to(['product/promotion','promotion_id'=>$data['bn_right'][1]->id]) ?>" target="_self"
+                                                                <a href="<?php echo Url::to(['product/promotion', 'promotion_id' => $data['bn_right'][1]->id]) ?>"
+                                                                   target="_self"
                                                                    class="vc_single_image-wrapper vc_box_border_grey">
                                                                     <img class="vc_single_image-img"
-                                                                         src=<?php echo IMG_PROMOTION_SAVE_PATH.$data['bn_right'][1]->pictures ?> width="193"
-                                                                         height="175" alt=<?php echo $data['bn_right'][1]->title ?> title=<?php echo $data['bn_right'][1]->title ?> />
+                                                                         src=<?php echo IMG_PROMOTION_SAVE_PATH . $data['bn_right'][1]->pictures ?> width="193"
+                                                                         height="175"
+                                                                         alt=<?php echo $data['bn_right'][1]->title ?> title=<?php echo $data['bn_right'][1]->title ?> />
                                                                 </a>
                                                             </figure>
                                                         </div>
@@ -502,8 +250,8 @@ use yii\helpers\Url;
                                             <div class="resp-slider-container">
                                                 <div class="box-title clearfix">
                                                     <h3>热销商品</h3>
+
                                                     <a href="#">预留1</a>
-                                                    <a href="#">预留2</a>
                                                 </div>
 
                                                 <div class="banner-content clearfix">
@@ -514,29 +262,29 @@ use yii\helpers\Url;
                                                 </div>
 
                                                 <div class="slider responsive">
-                                                    <?php foreach ($data['hot_sale'] as $index => $hot_sale):?>
-                                                    <div class="item-countdown product " >
-                                                        <div class="item-wrap">
-                                                            <div class="item-detail">
-                                                                <div class="item-content">
-                                                                    <!-- rating  -->
-                                                                    <div class="reviews-content">
-                                                                        <div class="star">
-                                                                            <span style="width:35px"></span>
+                                                    <?php foreach ($data['hot_sale'] as $index => $hot_sale): ?>
+                                                        <div class="item-countdown product ">
+                                                            <div class="item-wrap">
+                                                                <div class="item-detail">
+                                                                    <div class="item-content">
+                                                                        <!-- rating  -->
+                                                                        <div class="reviews-content">
+                                                                            <div class="star">
+                                                                                <span style="width:35px"></span>
+                                                                            </div>
+
+                                                                            <div class="item-number-rating">2 Review(s)
+                                                                            </div>
                                                                         </div>
+                                                                        <!-- end rating  -->
 
-                                                                        <div class="item-number-rating">2 Review(s)
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- end rating  -->
+                                                                        <h4>
+                                                                            <a href="<?php echo Url::to(['product/simple', 'product_id' => $hot_sale['id']]) ?>"
+                                                                               title=<?php echo $hot_sale['product_title'] ?>><?php echo $hot_sale['product_title'] ?></a>
+                                                                        </h4>
 
-                                                                    <h4>
-                                                                        <a href="<?php echo Url::to(['product/simple','product_id'=>$hot_sale['id']]) ?>"
-                                                                           title=<?php echo $hot_sale['product_title'] ?> ><?php echo $hot_sale['product_title'] ?></a>
-                                                                    </h4>
-
-                                                                    <!-- Price -->
-                                                                    <div class="item-price">
+                                                                        <!-- Price -->
+                                                                        <div class="item-price">
 																				<span>
 																					<ins>
 																						<span
@@ -546,84 +294,88 @@ use yii\helpers\Url;
 																						</span>
 																					</ins>
 																				</span>
-                                                                    </div>
-
-                                                                    <div class="sale-off"><?php echo $hot_sale['id'] ?></div>
-
-                                                                    <div class="product-countdown"
-                                                                         data-date="1519776000" data-price="$250"
-                                                                         data-starttime="1483747200"
-                                                                         data-cdtime="1519776000"
-                                                                         data-id="product_sw_countdown_02"></div>
-                                                                </div>
-
-                                                                <div class="item-image-countdown">
-                                                                    <span class="onsale">Sale!</span>
-
-                                                                    <a href="<?php echo Url::to(['product/simple','product_id'=>$hot_sale['id']]) ?>">
-                                                                        <div class="product-thumb-hover">
-                                                                            <img width="300" height="300"
-                                                                                 src=<?php echo $data['hot_sale_attr'][$index]['image'] ?>
-                                                                                 class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                                 alt=""/>
                                                                         </div>
-                                                                    </a>
-
-                                                                    <!-- add to cart, wishlist, compare -->
-                                                                    <div class="item-bottom clearfix">
-                                                                        <a rel="nofollow" href="<?php echo Url::to(['cart/add','product_id'=>$hot_sale['id']]) ?>"
-                                                                           class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                                                           title="Add to Cart">Add to cart</a>
-
-                                                                        <a href="javascript:void(0)"
-                                                                           class="compare button" rel="nofollow"
-                                                                           title="Add to Compare(Coming Soon)">Compare</a>
 
                                                                         <div
-                                                                            class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-                                                                            <div class="yith-wcwl-add-button show"
-                                                                                 style="display:block">
-                                                                                <a href="#" rel="nofollow"
-                                                                                   class="add_to_wishlist">Add to
-                                                                                    Wishlist(Coming Soon)</a>
-                                                                                <img src="images/wpspin_light.gif"
-                                                                                     class="ajax-loading" alt="loading"
-                                                                                     width="16" height="16"
-                                                                                     style="visibility:hidden"/>
+                                                                            class="sale-off"><?php echo $hot_sale['id'] ?></div>
+
+                                                                        <div class="product-countdown"
+                                                                             data-date="1519776000" data-price="$250"
+                                                                             data-starttime="1483747200"
+                                                                             data-cdtime="1519776000"
+                                                                             data-id="product_sw_countdown_02"></div>
+                                                                    </div>
+
+                                                                    <div class="item-image-countdown">
+                                                                        <span class="onsale">Sale!</span>
+
+                                                                        <a href="<?php echo Url::to(['product/simple', 'product_id' => $hot_sale['id']]) ?>">
+                                                                            <div class="product-thumb-hover">
+                                                                                <img width="300" height="300"
+                                                                                     src=<?php echo $data['hot_sale_attr'][$index]['image'] ?>
+                                                                                     class="attachment-shop_catalog
+                                                                                     size-shop_catalog wp-post-image"
+                                                                                alt=""/>
                                                                             </div>
+                                                                        </a>
+
+                                                                        <!-- add to cart, wishlist, compare -->
+                                                                        <div class="item-bottom clearfix">
+                                                                            <a rel="nofollow"
+                                                                               href="<?php echo Url::to(['cart/add', 'product_id' => $hot_sale['id']]) ?>"
+                                                                               class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                                               title="Add to Cart">Add to cart</a>
+
+                                                                            <a href="javascript:void(0)"
+                                                                               class="compare button" rel="nofollow"
+                                                                               title="Add to Compare(Coming Soon)">Compare</a>
 
                                                                             <div
-                                                                                class="yith-wcwl-wishlistaddedbrowse hide"
-                                                                                style="display:none;">
+                                                                                class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+                                                                                <div class="yith-wcwl-add-button show"
+                                                                                     style="display:block">
+                                                                                    <a href="#" rel="nofollow"
+                                                                                       class="add_to_wishlist">Add to
+                                                                                        Wishlist(Coming Soon)</a>
+                                                                                    <img src="images/wpspin_light.gif"
+                                                                                         class="ajax-loading"
+                                                                                         alt="loading"
+                                                                                         width="16" height="16"
+                                                                                         style="visibility:hidden"/>
+                                                                                </div>
+
+                                                                                <div
+                                                                                    class="yith-wcwl-wishlistaddedbrowse hide"
+                                                                                    style="display:none;">
                                                                                 <span
                                                                                     class="feedback">Product added!</span>
-                                                                                <a href="#" rel="nofollow">Browse
-                                                                                    Wishlist</a>
+                                                                                    <a href="#" rel="nofollow">Browse
+                                                                                        Wishlist</a>
+                                                                                </div>
+
+                                                                                <div
+                                                                                    class="yith-wcwl-wishlistexistsbrowse hide"
+                                                                                    style="display:none">
+                                                                                    <span class="feedback">The product is already in the wishlist!</span>
+                                                                                    <a href="#" rel="nofollow">Browse
+                                                                                        Wishlist</a>
+                                                                                </div>
+
+                                                                                <div style="clear:both"></div>
+                                                                                <div
+                                                                                    class="yith-wcwl-wishlistaddresponse"></div>
                                                                             </div>
 
-                                                                            <div
-                                                                                class="yith-wcwl-wishlistexistsbrowse hide"
-                                                                                style="display:none">
-                                                                                <span class="feedback">The product is already in the wishlist!</span>
-                                                                                <a href="#" rel="nofollow">Browse
-                                                                                    Wishlist</a>
-                                                                            </div>
-
-                                                                            <div style="clear:both"></div>
-                                                                            <div
-                                                                                class="yith-wcwl-wishlistaddresponse"></div>
+                                                                            <div class="clear"></div>
+                                                                            <a href="#" data-fancybox-type="ajax"
+                                                                               class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
+                                                                                View(Coming Soon) </a>
                                                                         </div>
-
-                                                                        <div class="clear"></div>
-                                                                        <a href="#" data-fancybox-type="ajax"
-                                                                           class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-                                                                            View(Coming Soon) </a>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <?php endforeach;?>
+                                                    <?php endforeach; ?>
 
                                                 </div>
                                             </div>
@@ -664,10 +416,13 @@ use yii\helpers\Url;
                                                             <li><a href="#">分类3</a></li>
                                                             <li><a href="#">分类4</a></li>
                                                             <li><a href="#">分类5</a></li>
-                                                            <li> <a href="#">See All<i class="fa  fa-caret-right"></i></a></li>
+                                                            <li><a href="#">See All<i
+                                                                        class="fa  fa-caret-right"></i></a></li>
                                                         </ul>
                                                     </div>
-
+                                                    <div class="view-all">
+                                                        <a href="#">See All<i class="fa  fa-caret-right"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -708,199 +463,209 @@ use yii\helpers\Url;
                                                     <!-- slider content -->
                                                     <div class="resp-slider-container">
                                                         <div class="slider responsive">
-                                                            <?php for($i = 0 ;$i<count($data['recommend']);$i+=2):?>
-                                                            <div class="item product">
-                                                                <div class="item-wrap">
-                                                                    <div class="item-detail">
-                                                                        <div class="item-content">
-                                                                            <!-- rating  -->
-                                                                            <div class="reviews-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="item-number-rating">888
-                                                                                    Review(s)
+                                                            <?php for ($i = 0; $i < count($data['recommend']); $i += 2): ?>
+                                                                <div class="item product">
+                                                                    <div class="item-wrap">
+                                                                        <div class="item-detail">
+                                                                            <div class="item-content">
+                                                                                <!-- rating  -->
+                                                                                <div class="reviews-content">
+                                                                                    <div class="star"></div>
+                                                                                    <div class="item-number-rating">888
+                                                                                        Review(s)
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <!-- end rating  -->
+                                                                                <!-- end rating  -->
 
-                                                                            <h4>
-                                                                                <a href="<?php echo Url::to(['product/simple','product_id'=>$data['recommend'][$i]['id']]) ?>"
-                                                                                   title="<?php echo $data['recommend'][$i]['product_title']?>"><?php echo $data['recommend'][$i]['product_title']?></a>
-                                                                            </h4>
+                                                                                <h4>
+                                                                                    <a href="<?php echo Url::to(['product/simple', 'product_id' => $data['recommend'][$i]['id']]) ?>"
+                                                                                       title="<?php echo $data['recommend'][$i]['product_title'] ?>"><?php echo $data['recommend'][$i]['product_title'] ?></a>
+                                                                                </h4>
 
-                                                                            <!-- Price -->
-                                                                            <div class="item-price">
+                                                                                <!-- Price -->
+                                                                                <div class="item-price">
 																						<span>
 																							<span
                                                                                                 class="woocommerce-Price-amount amount">
 																								<span
-                                                                                                    class="woocommerce-Price-currencySymbol">¥</span><?php echo $data['recommend_attr'][$i]['price']?>
+                                                                                                    class="woocommerce-Price-currencySymbol">¥</span><?php echo $data['recommend_attr'][$i]['price'] ?>
 																							</span>
 																						</span>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
 
-                                                                        <div class="item-img products-thumb">
-                                                                            <a href="<?php echo Url::to(['product/simple','product_id'=>$data['recommend'][$i]['id']]) ?>">
-                                                                                <div class="product-thumb-hover">
-                                                                                    <img width="300" height="300"
-                                                                                         src="<?php echo $data['recommend_attr'][$i]['image']?>"
-                                                                                         class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                                         alt="" />
+                                                                            <div class="item-img products-thumb">
+                                                                                <a href="<?php echo Url::to(['product/simple', 'product_id' => $data['recommend'][$i]['id']]) ?>">
+                                                                                    <div class="product-thumb-hover">
+                                                                                        <img width="300" height="300"
+                                                                                             src="<?php echo $data['recommend_attr'][$i]['image'] ?>"
+                                                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
+                                                                                             alt=""/>
+                                                                                    </div>
+                                                                                </a>
+
+                                                                                <!-- add to cart, wishlist, compare -->
+                                                                                <div class="item-bottom clearfix">
+                                                                                    <a rel="nofollow"
+                                                                                       href="<?php echo Url::to(['cart/add', 'product_id' => $data['recommend'][$i]['id']]) ?>"
+                                                                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                                                       title="Add to Cart">Add to
+                                                                                        cart</a>
+
+                                                                                    <a href="javascript:void(0)"
+                                                                                       class="compare button"
+                                                                                       rel="nofollow"
+                                                                                       title="Add to Compare(Coming Soon)">Compare</a>
+
+                                                                                    <div
+                                                                                        class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+                                                                                        <div
+                                                                                            class="yith-wcwl-add-button show"
+                                                                                            style="display:block">
+                                                                                            <a href="#" rel="nofollow"
+                                                                                               class="add_to_wishlist">Add
+                                                                                                to Wishlist(Coming
+                                                                                                Soon)</a>
+                                                                                            <img
+                                                                                                src="images/wpspin_light.gif"
+                                                                                                class="ajax-loading"
+                                                                                                alt="loading" width="16"
+                                                                                                height="16"
+                                                                                                style="visibility:hidden"/>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="yith-wcwl-wishlistaddedbrowse hide"
+                                                                                            style="display:none;">
+                                                                                            <span class="feedback">Product added!</span>
+                                                                                            <a href="#" rel="nofollow">Browse
+                                                                                                Wishlist</a>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="yith-wcwl-wishlistexistsbrowse hide"
+                                                                                            style="display:none">
+                                                                                            <span class="feedback">The product is already in the wishlist!</span>
+                                                                                            <a href="#" rel="nofollow">Browse
+                                                                                                Wishlist</a>
+                                                                                        </div>
+
+                                                                                        <div style="clear:both"></div>
+                                                                                        <div
+                                                                                            class="yith-wcwl-wishlistaddresponse"></div>
+                                                                                    </div>
+
+                                                                                    <div class="clear"></div>
+                                                                                    <a href="#"
+                                                                                       data-fancybox-type="ajax"
+                                                                                       class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
+                                                                                        View (Coming Soon)</a>
                                                                                 </div>
-                                                                            </a>
-
-                                                                            <!-- add to cart, wishlist, compare -->
-                                                                            <div class="item-bottom clearfix">
-                                                                                <a rel="nofollow" href="<?php echo Url::to(['cart/add','product_id'=>$data['recommend'][$i]['id']]) ?>"
-                                                                                   class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                                                                   title="Add to Cart">Add to cart</a>
-
-                                                                                <a href="javascript:void(0)"
-                                                                                   class="compare button" rel="nofollow"
-                                                                                   title="Add to Compare(Coming Soon)">Compare</a>
-
-                                                                                <div
-                                                                                    class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-                                                                                    <div
-                                                                                        class="yith-wcwl-add-button show"
-                                                                                        style="display:block">
-                                                                                        <a href="#" rel="nofollow"
-                                                                                           class="add_to_wishlist">Add
-                                                                                            to Wishlist(Coming Soon)</a>
-                                                                                        <img
-                                                                                            src="images/wpspin_light.gif"
-                                                                                            class="ajax-loading"
-                                                                                            alt="loading" width="16"
-                                                                                            height="16"
-                                                                                            style="visibility:hidden"/>
-                                                                                    </div>
-
-                                                                                    <div
-                                                                                        class="yith-wcwl-wishlistaddedbrowse hide"
-                                                                                        style="display:none;">
-                                                                                        <span class="feedback">Product added!</span>
-                                                                                        <a href="#" rel="nofollow">Browse
-                                                                                            Wishlist</a>
-                                                                                    </div>
-
-                                                                                    <div
-                                                                                        class="yith-wcwl-wishlistexistsbrowse hide"
-                                                                                        style="display:none">
-                                                                                        <span class="feedback">The product is already in the wishlist!</span>
-                                                                                        <a href="#" rel="nofollow">Browse
-                                                                                            Wishlist</a>
-                                                                                    </div>
-
-                                                                                    <div style="clear:both"></div>
-                                                                                    <div
-                                                                                        class="yith-wcwl-wishlistaddresponse"></div>
-                                                                                </div>
-
-                                                                                <div class="clear"></div>
-                                                                                <a href="#" data-fancybox-type="ajax"
-                                                                                   class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-                                                                                    View (Coming Soon)</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="item-wrap">
-                                                                    <div class="item-detail">
-                                                                        <div class="item-content">
-                                                                            <!-- rating  -->
-                                                                            <div class="reviews-content">
-                                                                                <div class="star"></div>
-                                                                                <div class="item-number-rating">0
-                                                                                    Review(s)
+                                                                    <div class="item-wrap">
+                                                                        <div class="item-detail">
+                                                                            <div class="item-content">
+                                                                                <!-- rating  -->
+                                                                                <div class="reviews-content">
+                                                                                    <div class="star"></div>
+                                                                                    <div class="item-number-rating">0
+                                                                                        Review(s)
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <!-- end rating  -->
+                                                                                <!-- end rating  -->
 
-                                                                            <h4>
-                                                                                <a href="<?php echo Url::to(['product/simple']) ?>"
-                                                                                   title="veniam dolore"><?php echo $data['recommend'][$i+1]['product_title']?></a>
-                                                                            </h4>
+                                                                                <h4>
+                                                                                    <a href="<?php echo Url::to(['product/simple']) ?>"
+                                                                                       title="veniam dolore"><?php echo $data['recommend'][$i + 1]['product_title'] ?></a>
+                                                                                </h4>
 
-                                                                            <!-- Price -->
-                                                                            <div class="item-price">
+                                                                                <!-- Price -->
+                                                                                <div class="item-price">
 																						<span>
 																							<span
                                                                                                 class="woocommerce-Price-amount amount">
 																								<span
-                                                                                                    class="woocommerce-Price-currencySymbol">¥</span><?php echo $data['recommend_attr'][$i+1]['price']?></a>
+                                                                                                    class="woocommerce-Price-currencySymbol">¥</span><?php echo $data['recommend_attr'][$i + 1]['price'] ?></a>
 																							</span>
 																						</span>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
 
-                                                                        <div class="item-img products-thumb">
-                                                                            <a href="<?php echo Url::to(['product/simple','product_id'=>$data['recommend'][$i+1]['id']]) ?>">
-                                                                                <div class="product-thumb-hover">
-                                                                                    <img width="300" height="300"
-                                                                                         src="<?php echo $data['recommend_attr'][$i+1]['image']?>"
-                                                                                         class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                                                         alt="" />
+                                                                            <div class="item-img products-thumb">
+                                                                                <a href="<?php echo Url::to(['product/simple', 'product_id' => $data['recommend'][$i + 1]['id']]) ?>">
+                                                                                    <div class="product-thumb-hover">
+                                                                                        <img width="300" height="300"
+                                                                                             src="<?php echo $data['recommend_attr'][$i + 1]['image'] ?>"
+                                                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
+                                                                                             alt=""/>
+                                                                                    </div>
+                                                                                </a>
+
+                                                                                <!-- add to cart, wishlist, compare -->
+                                                                                <div class="item-bottom clearfix">
+                                                                                    <a rel="nofollow"
+                                                                                       href="<?php echo Url::to(['cart/add', 'product_id' => $data['recommend'][$i + 1]['id']]) ?>"
+                                                                                       class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                                                       title="Add to Cart">Add to
+                                                                                        cart</a>
+
+                                                                                    <a href="javascript:void(0)"
+                                                                                       class="compare button"
+                                                                                       rel="nofollow"
+                                                                                       title="Add to Compare (Coming Soon)">Compare</a>
+
+                                                                                    <div
+                                                                                        class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+                                                                                        <div
+                                                                                            class="yith-wcwl-add-button show"
+                                                                                            style="display:block">
+                                                                                            <a href="#" rel="nofollow"
+                                                                                               class="add_to_wishlist">Add
+                                                                                                to Wishlist(Coming
+                                                                                                Soon)</a>
+                                                                                            <img
+                                                                                                src="images/wpspin_light.gif"
+                                                                                                class="ajax-loading"
+                                                                                                alt="loading" width="16"
+                                                                                                height="16"
+                                                                                                style="visibility:hidden"/>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="yith-wcwl-wishlistaddedbrowse hide"
+                                                                                            style="display:none;">
+                                                                                            <span class="feedback">Product added!</span>
+                                                                                            <a href="#" rel="nofollow">Browse
+                                                                                                Wishlist</a>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="yith-wcwl-wishlistexistsbrowse hide"
+                                                                                            style="display:none">
+                                                                                            <span class="feedback">The product is already in the wishlist!</span>
+                                                                                            <a href="#" rel="nofollow">Browse
+                                                                                                Wishlist</a>
+                                                                                        </div>
+
+                                                                                        <div style="clear:both"></div>
+                                                                                        <div
+                                                                                            class="yith-wcwl-wishlistaddresponse"></div>
+                                                                                    </div>
+
+                                                                                    <div class="clear"></div>
+                                                                                    <a href="#"
+                                                                                       data-fancybox-type="ajax"
+                                                                                       class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
+                                                                                        View (Coming Soon)</a>
                                                                                 </div>
-                                                                            </a>
-
-                                                                            <!-- add to cart, wishlist, compare -->
-                                                                            <div class="item-bottom clearfix">
-                                                                                <a rel="nofollow" href="<?php echo Url::to(['cart/add','product_id'=>$data['recommend'][$i+1]['id']])?>"
-                                                                                   class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                                                                   title="Add to Cart">Add to cart</a>
-
-                                                                                <a href="javascript:void(0)"
-                                                                                   class="compare button" rel="nofollow"
-                                                                                   title="Add to Compare (Coming Soon)">Compare</a>
-
-                                                                                <div
-                                                                                    class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-                                                                                    <div
-                                                                                        class="yith-wcwl-add-button show"
-                                                                                        style="display:block">
-                                                                                        <a href="#" rel="nofollow"
-                                                                                           class="add_to_wishlist">Add
-                                                                                            to Wishlist(Coming Soon)</a>
-                                                                                        <img
-                                                                                            src="images/wpspin_light.gif"
-                                                                                            class="ajax-loading"
-                                                                                            alt="loading" width="16"
-                                                                                            height="16"
-                                                                                            style="visibility:hidden"/>
-                                                                                    </div>
-
-                                                                                    <div
-                                                                                        class="yith-wcwl-wishlistaddedbrowse hide"
-                                                                                        style="display:none;">
-                                                                                        <span class="feedback">Product added!</span>
-                                                                                        <a href="#" rel="nofollow">Browse
-                                                                                            Wishlist</a>
-                                                                                    </div>
-
-                                                                                    <div
-                                                                                        class="yith-wcwl-wishlistexistsbrowse hide"
-                                                                                        style="display:none">
-                                                                                        <span class="feedback">The product is already in the wishlist!</span>
-                                                                                        <a href="#" rel="nofollow">Browse
-                                                                                            Wishlist</a>
-                                                                                    </div>
-
-                                                                                    <div style="clear:both"></div>
-                                                                                    <div
-                                                                                        class="yith-wcwl-wishlistaddresponse"></div>
-                                                                                </div>
-
-                                                                                <div class="clear"></div>
-                                                                                <a href="#" data-fancybox-type="ajax"
-                                                                                   class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-                                                                                    View (Coming Soon)</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <?php endfor;?>
+                                                            <?php endfor; ?>
                                                             <div class="item product">
                                                                 <div class="item-wrap">
                                                                     <div class="item-detail">

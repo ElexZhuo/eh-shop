@@ -125,13 +125,13 @@ AppAsset::register($this);
             <div class="container">
                 <div class="rows">
                     <!-- LOGO -->
-                    <div class="etrostore-logo pull-left">
+                    <div class="etrostore-logo pull-left" style="float: none !important;">
                         <a href="<?php echo \yii\helpers\Url::to(['site/index'])?>">
                             <img src="images/icons/logo-orange.png" alt="Shoopy">
                         </a>
                     </div>
 
-                    <div class="mid-header pull-right">
+                    <div class="mid-header pull-right" style="float: none !important;">
                         <div class="widget-1 widget-first widget sw_top-2 sw_top">
                             <div class="widget-inner">
                                 <div class="top-form top-search">
